@@ -1,0 +1,16 @@
+t = int(input())
+while(t):
+    t -= 1
+    n = int(input())
+    output = "1 * "
+    for i in range(2,n + 1):
+        dem = 0
+        while(n % i == 0):
+            dem += 1
+            n //= i
+        if(dem):
+            output = output + str(i) + "^" + str(dem)
+            if(n > i):
+                output += " * "
+    print(output)
+            
