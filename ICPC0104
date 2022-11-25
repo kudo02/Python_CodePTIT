@@ -1,0 +1,18 @@
+t = int(input())
+while(t):
+    t -= 1
+    a = list({})
+    s = input()
+    x = str("")
+    for i in range(len(s)):
+        if(s[i].isdigit()):
+            x += s[i]
+        else:
+            if(x != ""):
+                a.append(int(x))
+                x = ""
+    if(x != ""):
+        a.append(int(x))
+    print(min(a))
+    
+        
