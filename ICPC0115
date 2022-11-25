@@ -1,0 +1,23 @@
+a = [0 for i in range(10)]
+def Era():
+    a[0] = 1
+    a[1] = 1
+    tich = 1
+    for i in range(2, 10):
+        tich *= i
+        a[i] = tich
+
+t = int(input())
+Era()
+while(t):
+    t -= 1
+    s = input()
+    sum = int(0)
+    for i in range(len(s)):
+        sum += a[int(s[i])]
+
+    if(sum == int(s)):
+        print("Yes")
+    else:
+        print("No")
+
