@@ -1,0 +1,12 @@
+str = input()
+thuong = 0
+hoa = 0
+for i in range(len(str)):
+    if(str[i].islower()):
+        thuong += 1
+    elif(str[i].isupper()):
+        hoa += 1
+if(thuong >= hoa):
+    print(str.lower())
+else:
+    print(str.upper())
