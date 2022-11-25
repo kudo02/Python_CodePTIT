@@ -1,0 +1,28 @@
+a = [True for i in range(2000001)]
+def Era():
+    a[0] = False
+    a[1] = False
+    p = 2
+    while(p * p <= 2000000):
+        if(a[p] == True):
+            for i in range(p * p, 2000001, p):
+                a[i] = False
+        p += 1
+
+t = int(input())
+Era()
+while(t):
+    t -= 1
+    n = int(input())
+    b = list({})
+    for i in range(n):
+        k = str(i)
+        if(a[i] == True and a[int(k[::-1])] == True and str(i) != k[::-1] and int(k[::-1]) <= n):
+            if(b.count(i) == 0):
+                b.append(i)
+            if(b.count(int(k[::-1])) == 0):
+                b.append(int(k[::-1]))
+    for i in b:
+        print(i, end = " ")
+    print()
+
