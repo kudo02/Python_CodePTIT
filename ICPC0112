@@ -1,0 +1,21 @@
+a = [True for i in range(2000001)]
+def Era():
+    a[0] = False
+    a[1] = False
+    p = 2
+    while(p * p <= 2000000):
+        if(a[p] == True):
+            for i in range(p * p, 2000001, p):
+                a[i] = False
+        p += 1
+
+t = int(input())
+Era()
+while(t):
+    t -= 1
+    n = int(input())
+    dem = 0
+    for i in range(n - 6):
+        if((a[i] == True and a[i + 2] == True and a[i + 6] == True) or (a[i] == True and a[i + 4] == True and a[i + 6] == True)):
+            dem += 1
+    print(dem)
