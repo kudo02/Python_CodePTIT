@@ -1,0 +1,20 @@
+n = int(input())
+a = [[]]*n
+for i in range(n):
+    a[i] = [int(x) for x in input().split()]
+k = int(input())
+tren = int(0)
+duoi = int(0)
+
+for i in range(n):
+    for j in range(n):
+        if(i + j + 1 < n):
+            tren += a[i][j]
+        elif(i + j + 1 > n):
+            duoi += a[i][j]
+c = abs(tren - duoi)
+if(c <= k):
+    print("YES")
+else:
+    print("NO")
+print(c)
