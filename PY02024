@@ -1,0 +1,27 @@
+import functools
+def cmp(x, y):
+    if(tich(x) == tich(y)):
+        if(x > y):
+            return 1
+        else:
+            return -1
+    elif(tich(x) > tich(y)):
+        return 1
+    else:
+        return -1
+
+def tich(x):
+    tich = 1
+    while(x != 0):
+        tich *= x % 10
+        x = int(x/10)
+    return tich
+
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    a = [int(x) for x in input().split()]
+    a = sorted(a, key = functools.cmp_to_key(cmp))
+    for i in a:
+        print(i, end = " ")
+    print()
