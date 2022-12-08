@@ -1,0 +1,23 @@
+import math
+def nto(x):
+    if(x < 2):
+        return 0
+    for i in range(2, int(math.sqrt(x)) + 1):
+        if(x % i == 0): return 0
+    return 1
+
+n = int(input())
+a = [int(x) for x in input().split()]
+b = []
+
+for i in range(n):
+    if(nto(a[i])):
+        b.append(a[i])
+b = sorted(b)
+l = 0
+for i in range(n):
+    if(nto(a[i])):
+        print(b[l], end= " ")
+        l += 1
+    else:
+        print(a[i], end= " ")
