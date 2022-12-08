@@ -1,0 +1,15 @@
+n, m = map(int, input().split())
+a = [int(x) for x in input().split()]
+b = [int(x) for x in input().split()]
+A = set(a)
+B = set(b)
+check = True
+if(len(A) != len(B)):
+    check = False
+C = A - B
+if(len(C) != 0):
+    check = False
+if(check):
+    print("YES")
+else:
+    print("NO")
