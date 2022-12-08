@@ -1,0 +1,11 @@
+s = input()
+a = set()
+for i in range(0, len(s), 2):
+    x = ""
+    x += s[i]
+    if(i + 1 < len(s)):
+        x += s[i + 1]
+    if(len(x) == 2):
+        if(x not in a):
+            print(x, end= " ")
+            a.add(x)
