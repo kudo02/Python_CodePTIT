@@ -1,0 +1,28 @@
+def check(x):
+    y = str(x)
+    if(len(y) < 2):
+        return 0
+    if(y == y[::-1]):
+        return 1
+    else:
+        return 0
+
+n, m = [int(x) for x in input().split()]
+a = [[0]]*n
+for i in range(n):
+    a[i] = [int(x) for x in input().split()]
+
+res = -1
+for i in range(n):
+    for j in range(m):
+        if(check(a[i][j]) and a[i][j] > res):
+            res = a[i][j]
+
+if(res == -1):
+    print("NOT FOUND")
+else:
+    print(res)
+for i in range(n):
+    for j in range(m):
+        if(a[i][j] == res):
+            print("Vi tri [", i, '][', j,"]", sep="")
