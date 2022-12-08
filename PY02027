@@ -1,0 +1,19 @@
+t = int(input())
+a = []
+while(t):
+    t -= 1
+    s = input()
+    x = ""
+    for i in s:
+        if(i.isdigit()):
+            x += i
+        else:
+            if(x != ""):
+                a.append(int(x))
+                x =  ""
+    if(x != ""):
+        a.append(int(x))
+        x = ""
+a = sorted(a)
+for i in a:
+    print(i)
