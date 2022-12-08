@@ -1,0 +1,24 @@
+n, m = map(int, input().split())
+a = [[0]]*n
+min1 = 1e9
+max1 = -1e9
+for i in range(n):
+    a[i] = [int(x) for x in input().split()]
+    res1 = max(a[i])
+    res2 = min(a[i])
+    min1 = min(min1, res2)
+    max1 = max(max1, res1)
+ans = int(abs(min1 - max1))
+check = False
+for i in range(n):
+    for j in range(m):
+        if(a[i][j] == ans):
+            check = True
+if(check == False):
+    print("NOT FOUND")
+else:
+    print(ans)
+for i in range(n):
+    for j in range(m):
+        if(a[i][j] == ans):
+            print("Vi tri [",i,'][', j,']', sep="")
