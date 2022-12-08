@@ -1,0 +1,23 @@
+s = input()
+d = {}
+k = int(input())
+
+for i in range(0, len(s), 2):
+    x = ""
+    x += s[i]
+    if(i + 1 < len(s)):
+        x += s[i + 1]
+    if(len(x) == 2):
+        if(x in d):
+            d[x] = d[x] + 1
+        else:
+            d[x] = 1
+
+d = dict(sorted(d.items(), key = lambda x : x[0]))
+check = False
+for key, value in d.items():
+    if(value >= k):
+        print(key, value, sep= " ")
+        check = True
+if(check == False):
+    print("NOT FOUND")
