@@ -1,0 +1,13 @@
+n = int(input())
+a = [int(x) for x in input().split()]
+
+a = sorted(a)
+
+max1 = a[0]*a[1]
+max2 = a[n - 1]*a[n - 2]
+max3 = a[0]*a[1]*a[2]
+max4 = a[0]*a[1]*a[n-1]
+max5 = a[n - 1]*a[n - 2]*a[n - 3]
+
+ans = max(max1, max(max2, max(max3, max(max4, max5))))
+print(ans)
