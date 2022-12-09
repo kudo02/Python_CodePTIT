@@ -1,0 +1,12 @@
+t = int(input())
+arr = list([])
+string = ''
+for i in range(t):
+    string = input()
+    arr.append(string)
+    if(string == ''):
+        t += 1
+        print(arr[0] + ':', len(arr) - 2)
+        arr.clear()
+print(arr[0] + ':', len(arr) - 1)
+
