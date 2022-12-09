@@ -1,0 +1,5 @@
+s = input()
+while(len(s) > 1):
+    m1 = len(s)/2
+    s = str(int(s[:int(m1)]) + int(s[int(m1):]))
+    print(s)
