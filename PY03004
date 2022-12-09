@@ -1,0 +1,14 @@
+t = int(input())
+a = {}
+for i in range(t):
+    s = ''
+    for j in input().lower() + ' ' :
+        if (j >= 'a' and j <= 'z') or (j >= '0' and j <= '9'): s += j
+        else:
+            if(s != ''):
+                if s in a : a[s] += 1
+                else : a[s] = 1
+                s = ''
+a = sorted(a.items(), key = lambda x: (-x[1], x[0]))
+for i in a :
+    print(i[0], i[1])
