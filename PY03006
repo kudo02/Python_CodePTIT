@@ -1,0 +1,38 @@
+n = int(input())
+d = dict()
+for _ in range(n):
+    s = ""
+    for j in input().lower() + " ":
+        if(j >= 'a' and j <= 'z'):
+            s += j
+        else:
+            if(s != ""):
+                if(s in d):
+                    d[s] += 1
+                else:
+                    d[s] = 1
+                s = ""
+d = dict(sorted(d.items() , key = lambda x : (-x[1], x[0])))
+for key, val in d.items():
+    print(key, val, sep= " ")
+
+# import re
+# d = dict()
+# n = int(input())
+# string = ""
+# for _ in range(n):
+#     string += input() + ' '
+# s = re.findall('[a-zA-Z\s]+', string)
+# for i in s:
+#     x = i.lower().split()
+#     for j in x:
+#         if j in d:
+#             d[j] += 1
+#         else:
+#             d[j] = 1
+# m = sorted(d.items(), key = lambda x: (-x[1], x[0]))
+# for i in m:
+#     print(i[0], i[1])
+
+
+
