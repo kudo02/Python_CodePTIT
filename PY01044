@@ -1,0 +1,9 @@
+str1 = set(input().lower().split())
+str2 = set(input().lower().split())
+
+a = sorted(str1.union(str2))
+b = sorted(str1.intersection(str2))
+print(*a)
+print(*b)
+
+
