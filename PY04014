@@ -1,0 +1,48 @@
+import functools
+class BangDiem:
+    ma = ""
+    hocLuc = ""
+    def __init__(self, id, name, TB):
+        if(id < 10):
+            self.ma = "HS0" + str(id)
+        else:
+            self.ma = "HS" + str(id)
+        self.name = name
+        self.TB = TB
+        if(TB >= 9):
+            self.hocLuc = "XUAT SAC"
+        elif(TB < 9 and TB >= 8):
+            self.hocLuc = "GIOI"
+        elif(TB < 8 and TB >= 7):
+            self.hocLuc = "KHA"
+        elif(TB < 7 and TB >= 5):
+            self.hocLuc = "TB"
+        else:
+            self.hocLuc = "YEU"
+
+def cmp(x, y):
+    if(x.TB < y. TB):
+        return 1
+    elif(x.TB == y.TB):
+        if(x.ma > y.ma):
+            return 1
+        else:
+            return -1
+    else:
+        return -1
+
+
+t = int(input())
+a = []
+for i in range(t):
+    name = input()
+    arr = [float(x) for x in input().split()]
+    TB = arr[0]*2 + arr[1]*2 + arr[2] + arr[3] + arr[4] + arr[5] + arr[6] + arr[7] + arr[8] + arr[9]
+    TB = TB/12
+    TB = round(TB*100+1)/100
+    a.append(BangDiem(i + 1, name, TB))
+
+a = sorted(a, key= functools.cmp_to_key(cmp))
+for i in a:
+    print(i.ma, i.name, "{:.1f}".format(i.TB), i.hocLuc, sep= " ")
+
