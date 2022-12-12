@@ -1,0 +1,18 @@
+n, k = map(int, input().split())
+d = dict()
+for _ in range(n):
+    s = ""
+    for j in input().lower() + " ":
+        if ((j >= 'a' and j <= 'z') or (j >= '0' and j <= '9')):
+            s += j
+        else:
+            if(s != ""):
+                if(s in d):
+                    d[s] += 1
+                else:
+                    d[s] = 1
+                s = ""
+d = dict(sorted(d.items(), key = lambda x : (-x[1], x[0])))
+for key, val in d.items():
+    if(val >= k):
+        print(key, val, sep = " ")
