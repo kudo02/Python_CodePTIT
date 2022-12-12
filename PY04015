@@ -1,0 +1,46 @@
+import functools
+class LapHoaDon:
+    ma = ""
+    tong = 0
+    def __init__(self, id, name, chiSo1, chiSo2):
+        if(id < 10):
+            self.ma = "KH0" + str(id)
+        else:
+            self.ma = "KH" + str(id)
+        self.name = name
+        res = chiSo2 - chiSo1
+        k = 0
+        if(res > 100):
+            k = res - 100
+            self.tong += int(k*200)
+            self.tong += int(50*150)
+            self.tong += int(100*50)
+            self.tong += self.tong*0.05
+            self.tong = round(self.tong*100)/100
+        elif(res <= 100 and res > 50):
+            self.tong += int((res - 50)*150)
+            self.tong += int(100*50)
+            self.tong += self.tong*0.03
+            self.tong = round(self.tong*100)/100
+        else:
+            self.tong += int(res*100)
+            self.tong += self.tong*0.02
+            self.tong = round(self.tong*100)/100
+
+def cmp(x, y):
+    if(x.tong > y.tong):
+        return -1
+    else:
+        return 1
+
+t = int(input())
+a = []
+for i in range(t):
+    name = input()
+    x = int(input())
+    y = int(input())
+    a.append(LapHoaDon(i+ 1, name, x, y))
+a = sorted(a, key = functools.cmp_to_key(cmp))
+for i in a:
+    print(i.ma, i.name, "{:.0f}".format(i.tong), sep= " ")
+
