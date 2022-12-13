@@ -1,0 +1,24 @@
+import functools
+class DanhSachMonThi:
+    def __init__(self, ma, name, hinhThuc):
+        self.ma = ma
+        self.name = name
+        self.hinhThuc = hinhThuc
+
+def cmp(a, b):
+    if(a.ma > b.ma):
+        return 1
+    else:
+        return -1
+
+t = int(input())
+a = []
+while(t):
+    t -= 1
+    ma = input()
+    name = input()
+    hinhThuc = input()
+    a.append(DanhSachMonThi(ma, name, hinhThuc))
+a = sorted(a, key= functools.cmp_to_key(cmp))
+for i in a:
+    print(i.ma, i.name, i.hinhThuc, sep= " ")
