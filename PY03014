@@ -1,0 +1,15 @@
+t = int(input())
+while(t):
+    t -= 1
+    a = []
+    res = 1
+    s = input()
+    for i in s:
+        if(i == '('):
+            a.append(res)
+            print(res, end= " ")
+            res += 1
+        elif(i == ')'):
+            print(a[len(a) - 1], end= " ")
+            a.remove(a[len(a) - 1])
+    print()
