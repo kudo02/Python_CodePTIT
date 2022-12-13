@@ -1,0 +1,35 @@
+t = int(input())
+d = {}
+while(t):
+    t -= 1
+    string = [x for x in input().split()]
+    if(string[3] == "IN"):
+        res = string[1] + string[2]
+        if(res == "Xe_con5"):
+            if(string[4] in d):
+                d[string[4]] += 10000
+            else:
+                d[string[4]] = 10000
+        elif(res == "Xe_con7"):
+            if(string[4] in d):
+                d[string[4]] += 15000
+            else:
+                d[string[4]] = 15000
+        elif(res == "Xe_tai2"):
+            if(string[4] in d):
+                d[string[4]] += 20000
+            else:
+                d[string[4]] = 20000
+        elif(res == "Xe_khach29"):
+            if(string[4] in d):
+                d[string[4]] += 50000
+            else:
+                d[string[4]] = 50000
+        elif(res == "Xe_khach45"):
+            if(string[4] in d):
+                d[string[4]] += 70000
+            else:
+                d[string[4]] = 70000
+
+for key, val in d.items():
+    print(key,val, sep=": ")
