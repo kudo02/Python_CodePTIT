@@ -1,0 +1,40 @@
+import functools
+class TuyenNhanVien:
+    tong = 0
+    ma = ""
+    trangThai = ""
+    def __init__(self, id, name, lyThuyet, thucHanh):
+        self.ma = "TS0" + str(id)
+        self.name = name
+        if(lyThuyet > 10):
+            lyThuyet = lyThuyet / 10
+        self.lyThuyet = lyThuyet
+        if(thucHanh > 10):
+            thucHanh = thucHanh / 10
+        self.thucHanh = thucHanh
+        
+        self.tong = (self.lyThuyet + self.thucHanh) / 2
+        if(self.tong > 9.5):
+            self.trangThai = "XUAT SAC"
+        elif(self.tong >= 8 and self.tong <= 9.5):
+            self.trangThai = "DAT"
+        elif(self.tong < 8 and self.tong >= 5):
+            self.trangThai = "CAN NHAC"
+        else:
+            self.trangThai = "TRUOT"
+
+def cmp(x, y):
+    if(x.tong > y.tong):
+        return -1
+    return 1
+
+t = int(input())
+a = []
+for i in range(t):
+    name = input()
+    x = float(input())
+    y = float(input())
+    a.append(TuyenNhanVien(i + 1, name, x, y))
+a = sorted(a, key= functools.cmp_to_key(cmp))
+for i in a:
+    print(i.ma, i.name, "{:.2f}".format(i.tong), i.trangThai, sep= " ")
